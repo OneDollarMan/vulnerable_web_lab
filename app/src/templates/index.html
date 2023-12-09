@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Лаба</title>
+    </head>
+    <body>
+        <form method="POST" action="/save_note_insecure">
+            Добавление текста небезопасное <br />
+            <input type="text" name="text" />
+            <input type="submit">
+        </form>
+
+        <form method="POST" action="/save_note_secure">
+            Добавление текста безопасное <br />
+            <input type="text" name="text" />
+            <input type="submit">
+        </form>
+        <ul>
+            {% if notes != None %}
+                {% for note in notes %}
+                    <li>
+                        <a href="/notes/{{ note[0] }}">{{ note[1] }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+
+    </body>
+</html>
